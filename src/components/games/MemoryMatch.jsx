@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import GameUI from '../GameUI'
 import './MemoryMatch.css'
 
 function MemoryMatch() {
@@ -197,45 +198,28 @@ function MemoryMatch() {
         {/* Game board will be created here by vanilla JS */}
       </div>
       
-      <div className="game-ui-overlay">
-        <div className="game-stats">
-          <h3>Memory Match</h3>
-          <p>Score: {score}</p>
-          <p>Moves: {moves}</p>
-          <p>Time: {formatTime(timeElapsed)}</p>
-          <p>Status: {gameCompleted ? 'Completed!' : isPlaying ? 'Playing' : 'Paused'}</p>
-          {gameCompleted && (
-            <div className="completion-message">
-              <p>🎉 Congratulations!</p>
-              <p>Completed in {moves} moves!</p>
-            </div>
-          )}
-          <div style={{ marginTop: '1rem', fontSize: '0.8rem' }}>
-            <p>🧠 Match all card pairs</p>
-            <p>🎯 Click cards to flip them</p>
-            <p>⏱️ Complete as fast as possible</p>
-          </div>
-        </div>
-        
-        <div className="game-controls">
-          {!isPlaying && !gameCompleted ? (
-            <button className="game-button" onClick={startGame}>
-              Start Game
-            </button>
-          ) : gameCompleted ? (
-            <button className="game-button" onClick={resetGame}>
-              Play Again
-            </button>
-          ) : (
-            <button className="game-button" onClick={() => setIsPlaying(false)}>
-              Pause
-            </button>
-          )}
-          <button className="game-button" onClick={resetGame}>
-            Reset
-          </button>
-        </div>
-      </div>
+      <GameUI
+        gameTitle="Memory Match"
+        score={score}
+        status={gameCompleted ? 'Completed!' : isPlaying ? 'Playing' : 'Paused'}
+        isPlaying={isPlaying}
+        additionalStats={{
+          "Moves": moves,
+          "Time": formatTime(timeElapsed),
+          ...(gameCompleted && {
+            "Final Time": formatTime(timeElapsed),
+            "Total Moves": moves
+          })
+        }}
+        instructions={[
+          "🧠 Match all card pairs",
+          "🎯 Click cards to flip them",
+          "⏱️ Complete as fast as possible"
+        ]}
+        onStart={startGame}
+        onPause={() => setIsPlaying(false)}
+        onReset={resetGame}
+      />
     </div>
   )
 }

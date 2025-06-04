@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import $ from 'jquery'
+import GameUI from '../GameUI'
 import './TowerDefense.css'
 
 function TowerDefense() {
@@ -362,36 +363,25 @@ function TowerDefense() {
         {/* Game board will be created here by jQuery */}
       </div>
       
-      <div className="game-ui-overlay">
-        <div className="game-stats">
-          <h3>Tower Defense</h3>
-          <p>Score: {score}</p>
-          <p>Health: {health}/100</p>
-          <p>Money: ${money}</p>
-          <p>Wave: {wave}</p>
-          <p>Status: {gameOver ? 'Game Over!' : isPlaying ? 'Playing' : 'Paused'}</p>
-          <div style={{ marginTop: '1rem', fontSize: '0.8rem' }}>
-            <p>🏗️ Click to place towers</p>
-            <p>💰 Earn money by defeating enemies</p>
-            <p>❤️ Don't let enemies reach the end!</p>
-          </div>
-        </div>
-        
-        <div className="game-controls">
-          {!isPlaying ? (
-            <button className="game-button" onClick={startGame}>
-              {gameOver ? 'Play Again' : 'Start Game'}
-            </button>
-          ) : (
-            <button className="game-button" onClick={() => setIsPlaying(false)}>
-              Pause
-            </button>
-          )}
-          <button className="game-button" onClick={resetGame}>
-            Reset
-          </button>
-        </div>
-      </div>
+      <GameUI
+        gameTitle="Tower Defense"
+        score={score}
+        status={gameOver ? 'Game Over!' : isPlaying ? 'Playing' : 'Paused'}
+        isPlaying={isPlaying}
+        additionalStats={{
+          "Health": `${health}/100`,
+          "Money": `$${money}`,
+          "Wave": wave
+        }}
+        instructions={[
+          "🏗️ Click to place towers",
+          "💰 Earn money by defeating enemies", 
+          "❤️ Don't let enemies reach the end!"
+        ]}
+        onStart={startGame}
+        onPause={() => setIsPlaying(false)}
+        onReset={resetGame}
+      />
     </div>
   )
 }

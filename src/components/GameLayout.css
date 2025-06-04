@@ -104,62 +104,6 @@
   cursor: grabbing;
 }
 
-/* Game UI overlay */
-.game-ui-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  z-index: 100;
-}
-
-.game-ui-overlay > * {
-  pointer-events: auto;
-}
-
-.game-stats {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
-  padding: 1rem;
-  border-radius: 8px;
-  color: white;
-  font-family: monospace;
-  min-width: 200px;
-}
-
-.game-controls {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  display: flex;
-  gap: 0.5rem;
-}
-
-.game-button {
-  background: rgba(100, 108, 255, 0.8);
-  border: none;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.game-button:hover {
-  background: rgba(100, 108, 255, 1);
-  transform: translateY(-2px);
-}
-
-.game-button:active {
-  transform: translateY(0);
-}
-
 /* Loading screen */
 .game-loading {
   position: absolute;
@@ -223,25 +167,6 @@
   .back-link,
   .home-link {
     padding: 0.4rem 0.8rem;
-    font-size: 0.9rem;
-  }
-  
-  .game-stats {
-    top: 0.5rem;
-    left: 0.5rem;
-    padding: 0.75rem;
-    font-size: 0.8rem;
-    min-width: 150px;
-  }
-  
-  .game-controls {
-    bottom: 0.5rem;
-    right: 0.5rem;
-    flex-direction: column;
-  }
-  
-  .game-button {
-    padding: 0.5rem 1rem;
     font-size: 0.9rem;
   }
 }

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
+import GameUI from '../GameUI'
 import '../GameLayout.css'
 
 function ParticleStorm() {
@@ -203,34 +204,23 @@ function ParticleStorm() {
         style={{ background: '#1a1a1a' }}
       />
       
-      <div className="game-ui-overlay">
-        <div className="game-stats">
-          <h3>Particle Storm</h3>
-          <p>Score: {score}</p>
-          <p>Particles: {particleCount}</p>
-          <p>Status: {isPlaying ? 'Playing' : 'Paused'}</p>
-          <div style={{ marginTop: '1rem', fontSize: '0.8rem' }}>
-            <p>🎯 Click particles to destroy them</p>
-            <p>🖱️ Move mouse to attract particles</p>
-            <p>✨ Click empty space for effects</p>
-          </div>
-        </div>
-        
-        <div className="game-controls">
-          {!isPlaying ? (
-            <button className="game-button" onClick={startGame}>
-              Start Game
-            </button>
-          ) : (
-            <button className="game-button" onClick={() => setIsPlaying(false)}>
-              Pause
-            </button>
-          )}
-          <button className="game-button" onClick={resetGame}>
-            Reset
-          </button>
-        </div>
-      </div>
+      <GameUI
+        gameTitle="Particle Storm"
+        score={score}
+        status={isPlaying ? 'Playing' : 'Paused'}
+        isPlaying={isPlaying}
+        additionalStats={{
+          "Particles": particleCount
+        }}
+        instructions={[
+          "🎯 Click particles to destroy them",
+          "🖱️ Move mouse to attract particles",
+          "✨ Click empty space for effects"
+        ]}
+        onStart={startGame}
+        onPause={() => setIsPlaying(false)}
+        onReset={resetGame}
+      />
     </div>
   )
 }

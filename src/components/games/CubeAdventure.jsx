@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react'
 import * as THREE from 'three'
 import { useThree } from '../../hooks/useThree'
+import GameUI from '../GameUI'
 import '../GameLayout.css'
 
 function CubeAdventure() {
@@ -137,33 +138,22 @@ function CubeAdventure() {
         onClick={onCanvasClick}
       />
       
-      <div className="game-ui-overlay">
-        <div className="game-stats">
-          <h3>Cube Adventure</h3>
-          <p>Score: {score}</p>
-          <p>Cubes: {cubeCount}</p>
-          <p>Status: {isPlaying ? 'Playing' : 'Paused'}</p>
-          <div style={{ marginTop: '1rem', fontSize: '0.8rem' }}>
-            <p>🎯 Click cubes to destroy them</p>
-            <p>🖱️ Move mouse to look around</p>
-          </div>
-        </div>
-        
-        <div className="game-controls">
-          {!isPlaying ? (
-            <button className="game-button" onClick={startGame}>
-              Start Game
-            </button>
-          ) : (
-            <button className="game-button" onClick={() => setIsPlaying(false)}>
-              Pause
-            </button>
-          )}
-          <button className="game-button" onClick={resetGame}>
-            Reset
-          </button>
-        </div>
-      </div>
+      <GameUI
+        gameTitle="Cube Adventure"
+        score={score}
+        status={isPlaying ? 'Playing' : 'Paused'}
+        isPlaying={isPlaying}
+        additionalStats={{
+          "Cubes": cubeCount
+        }}
+        instructions={[
+          "🎯 Click cubes to destroy them",
+          "🖱️ Move mouse to look around"
+        ]}
+        onStart={startGame}
+        onPause={() => setIsPlaying(false)}
+        onReset={resetGame}
+      />
     </div>
   )
 }
