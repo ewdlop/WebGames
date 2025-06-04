@@ -127,7 +127,7 @@ npm install
 npm run dev
 ```
 
-4. Open your browser to `http://localhost:3000`
+4. Open your browser to `http://localhost:3001`
 
 ### Available Scripts
 
@@ -135,6 +135,108 @@ npm run dev
 - `npm run build` - Build optimized production bundle
 - `npm run preview` - Preview production build locally
 - `npm run lint` - Run ESLint for code quality
+
+## 🧪 Testing
+
+This project includes comprehensive testing using **5 different testing frameworks** to ensure quality, compatibility, and performance across different browsers and environments.
+
+### 🛠️ Testing Frameworks
+
+#### **1. Jest** (Unit Testing)
+- **Purpose**: React component testing, hooks, utility functions
+- **Features**: React Testing Library, mocks for Three.js/Canvas APIs
+- **Coverage**: Component rendering, user interactions, state management
+
+```bash
+npm test                    # Run all tests
+npm run test:watch         # Run in watch mode
+npm run test:coverage      # Generate coverage report
+```
+
+#### **2. Jasmine** (Behavior-Driven Testing)
+- **Purpose**: Game logic, physics calculations, performance testing
+- **Features**: Game mechanics validation, particle physics testing
+- **Coverage**: Game rules, collision detection, memory management
+
+```bash
+npm run test:jasmine
+```
+
+#### **3. Cypress** (End-to-End Testing)
+- **Purpose**: Full user journeys, integration testing
+- **Features**: Real browser testing, custom game commands, video recording
+- **Coverage**: Complete workflows, game interactions, navigation
+
+```bash
+npm run test:cypress        # Open Cypress GUI
+npm run test:cypress:run    # Run headlessly
+```
+
+#### **4. Playwright** (Cross-Browser Testing)
+- **Purpose**: Multi-browser compatibility, mobile testing
+- **Features**: Chrome/Firefox/Safari testing, mobile simulation
+- **Coverage**: Cross-browser compatibility, responsive design, performance
+
+```bash
+npm run test:playwright     # Run all browsers
+npm run test:playwright:ui  # Open UI mode
+```
+
+#### **5. Selenium WebDriver** (Automated Testing)
+- **Purpose**: Legacy browser support, automated testing, CI/CD
+- **Features**: WebDriver automation, accessibility validation
+- **Coverage**: Browser automation, accessibility, performance monitoring
+
+```bash
+npm run test:selenium
+```
+
+### 🎮 Game-Specific Testing
+
+Each framework tests different aspects of the games:
+
+- **🧪 Unit Tests (Jest)**: Component rendering, props, state changes
+- **⚙️ Integration Tests (Jasmine)**: Physics systems, game mechanics
+- **🌐 E2E Tests (Cypress/Playwright)**: User workflows, game interactions
+- **🔧 Browser Tests (Selenium)**: Cross-browser compatibility, accessibility
+
+### 📊 Testing Coverage
+
+- **Particle Storm**: Canvas rendering, mouse interactions, particle physics
+- **Cube Adventure**: Three.js scene loading, 3D interactions, WebGL compatibility
+- **Cosmic Defender**: Keyboard controls (WASD + Space), collision detection
+- **Memory Match**: Card flipping logic, game state management
+- **Tower Defense**: Tower placement, enemy pathfinding, strategy validation
+
+### 🚀 Quick Testing
+
+```bash
+# Run all tests sequentially
+npm run test:all
+
+# Or use the custom test runner
+node test-runner.js
+
+# Run specific framework
+node test-runner.js jest
+node test-runner.js cypress
+node test-runner.js playwright
+```
+
+### 📋 Testing Prerequisites
+
+- Development server running on `http://localhost:3001`
+- Chrome browser installed (for Selenium/Playwright)
+- All dependencies installed via `npm install`
+
+### 📈 Test Reports
+
+- **Jest**: Coverage reports in `coverage/` directory
+- **Cypress**: Videos and screenshots in `tests/cypress/`
+- **Playwright**: HTML reports in `tests/playwright-report/`
+- **Test Runner**: Aggregated results in `test-results.json`
+
+For detailed testing documentation, see [`tests/README.md`](tests/README.md).
 
 ## 🗺️ Routing Structure
 
@@ -187,6 +289,13 @@ npm run dev
 - **ESLint** - Code linting and quality
 - **PostCSS** - CSS processing
 
+### **Testing & Quality Assurance**
+- **Jest** - Unit testing with React Testing Library
+- **Jasmine** - Behavior-driven development testing
+- **Cypress** - End-to-end testing with real browsers
+- **Playwright** - Cross-browser and mobile testing
+- **Selenium WebDriver** - Automated browser testing
+
 ### **Styling**
 - **CSS3** - Modern styling with custom properties
 - **CSS Grid & Flexbox** - Advanced layout systems
@@ -237,7 +346,17 @@ npm run dev
 2. Add route in `src/App.jsx`
 3. Update games list in `src/pages/Games.jsx`
 4. Include appropriate CSS styling
-5. Test across different screen sizes
+5. **Add comprehensive tests** for all testing frameworks
+6. Test across different screen sizes
+
+### Testing Guidelines
+
+When contributing:
+- Add unit tests for new components (Jest)
+- Include game logic tests (Jasmine)
+- Create E2E tests for user workflows (Cypress)
+- Ensure cross-browser compatibility (Playwright/Selenium)
+- Run `npm run test:all` before submitting PRs
 
 ## 📄 License
 
@@ -248,7 +367,7 @@ This project is licensed under the ISC License - see the LICENSE file for detail
 - **Three.js Community** - For excellent 3D web graphics tools
 - **React Three Fiber Team** - For bringing React to 3D development
 - **Vite Team** - For the incredible build tool experience
-- **Material-UI** - For the comprehensive component library
+- **Testing Community** - Jest, Cypress, Playwright, Selenium, and Jasmine teams
 
 ---
 
