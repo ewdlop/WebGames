@@ -1,0 +1,147 @@
+.games {
+  text-align: center;
+}
+
+.games-header {
+  margin-bottom: 3rem;
+}
+
+.games-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.games-header p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.game-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #646cff, #535bf2);
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(100, 108, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(100, 108, 255, 0.2);
+}
+
+.game-category {
+  background: rgba(100, 108, 255, 0.2);
+  color: #646cff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.game-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.game-card p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.game-info {
+  margin-bottom: 1.5rem;
+}
+
+.players {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+
+.play-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #646cff, #535bf2);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.play-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(100, 108, 255, 0.4);
+}
+
+@media (max-width: 768px) {
+  .games-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .games-header h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .games-header h1 {
+    color: rgba(0, 0, 0, 0.9);
+  }
+  
+  .games-header p {
+    color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .game-card {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .game-card:hover {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 30px rgba(100, 108, 255, 0.15);
+  }
+  
+  .game-card h3 {
+    color: rgba(0, 0, 0, 0.9);
+  }
+  
+  .game-card p {
+    color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .players {
+    color: rgba(0, 0, 0, 0.6);
+  }
+} 

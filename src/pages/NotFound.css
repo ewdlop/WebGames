@@ -1,0 +1,157 @@
+.not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.not-found-content {
+  z-index: 2;
+  position: relative;
+}
+
+.not-found h1 {
+  font-size: 8rem;
+  font-weight: bold;
+  margin: 0;
+  background: linear-gradient(135deg, #646cff, #535bf2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(100, 108, 255, 0.3);
+}
+
+.not-found h2 {
+  font-size: 2rem;
+  margin: 1rem 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.not-found p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.not-found-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.home-button,
+.games-button {
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.home-button {
+  background: linear-gradient(135deg, #646cff, #535bf2);
+  color: white;
+  box-shadow: 0 4px 15px rgba(100, 108, 255, 0.3);
+}
+
+.home-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(100, 108, 255, 0.4);
+}
+
+.games-button {
+  background: transparent;
+  color: #646cff;
+  border: 2px solid #646cff;
+}
+
+.games-button:hover {
+  background: #646cff;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.not-found-graphic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-element {
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.1;
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-element:nth-child(1) {
+  top: 20%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.floating-element:nth-child(2) {
+  top: 60%;
+  right: 20%;
+  animation-delay: 2s;
+}
+
+.floating-element:nth-child(3) {
+  bottom: 30%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .not-found h1 {
+    font-size: 6rem;
+  }
+  
+  .not-found h2 {
+    font-size: 1.5rem;
+  }
+  
+  .not-found-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .home-button,
+  .games-button {
+    width: 200px;
+  }
+  
+  .floating-element {
+    font-size: 2rem;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .not-found h2 {
+    color: rgba(0, 0, 0, 0.9);
+  }
+  
+  .not-found p {
+    color: rgba(0, 0, 0, 0.7);
+  }
+} 
