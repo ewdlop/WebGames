@@ -1,4 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import { CssBaseline } from '@mui/material'
 import Layout from './components/Layout'
 import GameLayout from './components/GameLayout'
 import Home from './pages/Home'
@@ -12,25 +14,48 @@ import MemoryMatch from './games/MemoryMatch'
 import TowerDefense from './games/TowerDefense'
 import './App.css'
 
+// Create Material UI theme
+const theme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#646cff',
+    },
+    secondary: {
+      main: '#f50057',
+    },
+    background: {
+      default: '#1a1a1a',
+      paper: '#2a2a2a',
+    },
+  },
+  typography: {
+    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+  },
+})
+
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="games" element={<Games />} />
-        <Route path="*" element={<NotFound />} />
-      </Route>
-      
-      {/* Game sublayout routes */}
-      <Route path="/games/play" element={<GameLayout />}>
-        <Route path="cube-adventure" element={<CubeAdventure />} />
-        <Route path="particle-storm" element={<ParticleStorm />} />
-        <Route path="memory-match" element={<MemoryMatch />} />
-        <Route path="tower-defense" element={<TowerDefense />} />
-      </Route>
-    </Routes>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="games" element={<Games />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+        
+        {/* Game sublayout routes */}
+        <Route path="/games/play" element={<GameLayout />}>
+          <Route path="cube-adventure" element={<CubeAdventure />} />
+          <Route path="particle-storm" element={<ParticleStorm />} />
+          <Route path="memory-match" element={<MemoryMatch />} />
+          <Route path="tower-defense" element={<TowerDefense />} />
+        </Route>
+      </Routes>
+    </ThemeProvider>
   )
 }
 
