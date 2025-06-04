@@ -8,6 +8,8 @@ import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import CubeAdventure from './games/CubeAdventure'
 import ParticleStorm from './games/ParticleStorm'
+import MemoryMatch from './games/MemoryMatch'
+import TowerDefense from './games/TowerDefense'
 import './App.css'
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
       <Route path="/games/play" element={<GameLayout />}>
         <Route path="cube-adventure" element={<CubeAdventure />} />
         <Route path="particle-storm" element={<ParticleStorm />} />
+        <Route path="memory-match" element={<MemoryMatch />} />
+        <Route path="tower-defense" element={<TowerDefense />} />
       </Route>
     </Routes>
   )

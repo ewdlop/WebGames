@@ -7,6 +7,15 @@ function GameLayout() {
 
   return (
     <div className="game-layout">
+      {/* Always show header when on game pages */}
+      {isGamePage && (
+        <div className="game-floating-nav">
+          <Link to="/games" className="floating-back-button">
+            ← Back to Games
+          </Link>
+        </div>
+      )}
+      
       {!isGamePage && (
         <header className="game-header">
           <div className="game-header-content">

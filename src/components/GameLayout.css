@@ -214,24 +214,33 @@
 @media (max-width: 768px) {
   .game-header-content {
     padding: 0 0.5rem;
-  }
-  
-  .game-nav {
+    flex-direction: column;
     gap: 0.5rem;
   }
-  
+
+  .game-nav {
+    order: -1;
+  }
+
   .back-link,
   .home-link {
     padding: 0.4rem 0.8rem;
     font-size: 0.9rem;
   }
-  
+
+  .floating-back-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    border-radius: 20px;
+  }
+
   .game-stats {
     top: 0.5rem;
     left: 0.5rem;
+    right: 0.5rem;
+    width: auto;
+    font-size: 0.85rem;
     padding: 0.75rem;
-    font-size: 0.8rem;
-    min-width: 150px;
   }
   
   .game-controls {
@@ -258,4 +267,40 @@
   .game-loading {
     background: #f5f5f5;
   }
+}
+
+/* Floating navigation for game pages */
+.game-floating-nav {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+}
+
+.floating-back-button {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  color: #646cff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  border-radius: 25px;
+  border: 1px solid rgba(100, 108, 255, 0.3);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.floating-back-button:hover {
+  background: rgba(100, 108, 255, 0.2);
+  color: #535bf2;
+  border-color: rgba(100, 108, 255, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.floating-back-button:active {
+  transform: translateY(0);
 } 

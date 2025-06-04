@@ -1,0 +1,231 @@
+.tower-game-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(135deg, #0f0f23, #1a1a2e);
+  overflow: hidden;
+}
+
+.tower-game-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.tower-game-board {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  background: linear-gradient(135deg, #2d3561, #1e2749);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+.tower-path {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.path-segment {
+  position: absolute;
+  width: 30px;
+  height: 40px;
+  background: linear-gradient(135deg, #3a4a6b, #2c3e50);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.tower {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.tower:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.tower-basic {
+  background: radial-gradient(circle, #ff6b6b, #d63031);
+}
+
+.tower-fast {
+  background: radial-gradient(circle, #4ecdc4, #00b894);
+}
+
+.tower-heavy {
+  background: radial-gradient(circle, #45b7d1, #0984e3);
+}
+
+.enemy {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: left 0.1s linear;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.projectile {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px currentColor;
+  z-index: 10;
+}
+
+.tower-panel {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tower-btn {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+  border: 2px solid transparent;
+}
+
+.tower-btn:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.tower-btn.selected {
+  opacity: 1;
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Animations */
+@keyframes enemySpawn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes towerShoot {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes projectileHit {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.enemy {
+  animation: enemySpawn 0.3s ease-out;
+}
+
+.tower:active {
+  animation: towerShoot 0.2s ease-out;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .tower-game-board {
+    width: 90vw;
+    max-width: 500px;
+    height: 300px;
+  }
+  
+  .tower-panel {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .tower-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .tower,
+  .enemy {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .path-segment {
+    width: 25px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tower-game-board {
+    height: 250px;
+  }
+  
+  .tower-panel {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .tower-btn {
+    width: 100%;
+  }
+}
+
+/* Light theme support */
+@media (prefers-color-scheme: light) {
+  .tower-game-container {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  }
+  
+  .tower-game-board {
+    background: linear-gradient(135deg, #dee2e6, #adb5bd);
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .path-segment {
+    background: linear-gradient(135deg, #6c757d, #495057);
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .tower-panel {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+} 

@@ -23,6 +23,24 @@ function Games() {
     },
     {
       id: 3,
+      title: "Memory Match",
+      description: "Classic memory card game with CSS animations - Match pairs as fast as possible!",
+      category: "HTML/CSS/JS",
+      players: "1 Player",
+      technology: "Vanilla JavaScript",
+      route: "/games/play/memory-match"
+    },
+    {
+      id: 4,
+      title: "Tower Defense",
+      description: "Strategic tower placement game with jQuery - Defend your base from enemy waves!",
+      category: "Strategy",
+      players: "1 Player",
+      technology: "jQuery",
+      route: "/games/play/tower-defense"
+    },
+    {
+      id: 5,
       title: "Space Adventure",
       description: "Explore the cosmos in this epic space journey",
       category: "Adventure",
@@ -31,7 +49,7 @@ function Games() {
       route: null
     },
     {
-      id: 4,
+      id: 6,
       title: "Racing Thunder",
       description: "High-speed racing action",
       category: "Racing",
@@ -40,7 +58,7 @@ function Games() {
       route: null
     },
     {
-      id: 5,
+      id: 7,
       title: "Word Wizard",
       description: "Test your vocabulary skills",
       category: "Word",
@@ -49,7 +67,7 @@ function Games() {
       route: null
     },
     {
-      id: 6,
+      id: 8,
       title: "Memory Challenge",
       description: "Train your memory with fun exercises",
       category: "Memory",
@@ -68,6 +86,9 @@ function Games() {
           <span className="tech-badge">Three.js</span>
           <span className="tech-badge">WebGL</span>
           <span className="tech-badge">HTML5 Canvas</span>
+          <span className="tech-badge">jQuery</span>
+          <span className="tech-badge">Vanilla JS</span>
+          <span className="tech-badge">CSS3</span>
           <span className="tech-badge">React</span>
         </div>
       </div>
@@ -96,19 +117,23 @@ function Games() {
       </div>
       
       <div className="games-footer">
-        <h2>Canvas & WebGL Technologies</h2>
+        <h2>Web Game Technologies Showcase</h2>
         <div className="tech-info">
           <div className="tech-card">
             <h3>🎨 HTML5 Canvas</h3>
-            <p>2D graphics rendering for particle effects, animations, and classic game mechanics.</p>
+            <p>2D graphics rendering for particle effects, animations, and classic game mechanics with native browser APIs.</p>
           </div>
           <div className="tech-card">
             <h3>🌐 WebGL & Three.js</h3>
-            <p>Hardware-accelerated 3D graphics for immersive gaming experiences.</p>
+            <p>Hardware-accelerated 3D graphics for immersive gaming experiences with modern GPU acceleration.</p>
           </div>
           <div className="tech-card">
-            <h3>⚡ Real-time Rendering</h3>
-            <p>Smooth 60fps gameplay with optimized performance across all devices.</p>
+            <h3>⚡ Vanilla JavaScript</h3>
+            <p>Pure JavaScript DOM manipulation and event handling showcasing fundamental web development skills.</p>
+          </div>
+          <div className="tech-card">
+            <h3>🔧 jQuery</h3>
+            <p>Simplified DOM manipulation, animations, and AJAX calls for rapid game development and prototyping.</p>
           </div>
         </div>
       </div>
