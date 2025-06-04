@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react'
 import * as THREE from 'three'
-import { useThree } from '../hooks/useThree'
+import { useThree } from '../../hooks/useThree'
+import '../GameLayout.css'
 
 function CubeAdventure() {
   const [score, setScore] = useState(0)
