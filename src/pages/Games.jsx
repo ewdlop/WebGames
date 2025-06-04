@@ -96,6 +96,15 @@ function Games() {
     },
     {
       id: 5,
+      title: "Cosmic Defender",
+      description: "3D space shooter with React Three Fiber - Pilot your spaceship and destroy asteroids in zero gravity!",
+      category: "3D Action",
+      players: "1 Player",
+      technology: "React Three Fiber",
+      route: "/games/play/cosmic-defender"
+    },
+    {
+      id: 6,
       title: "Space Adventure",
       description: "Explore the cosmos in this epic space journey",
       category: "Adventure",
@@ -104,7 +113,7 @@ function Games() {
       route: null
     },
     {
-      id: 6,
+      id: 7,
       title: "Racing Thunder",
       description: "High-speed racing action",
       category: "Racing",
@@ -113,7 +122,7 @@ function Games() {
       route: null
     },
     {
-      id: 7,
+      id: 8,
       title: "Word Wizard",
       description: "Test your vocabulary skills",
       category: "Word",
@@ -122,7 +131,7 @@ function Games() {
       route: null
     },
     {
-      id: 8,
+      id: 9,
       title: "Memory Challenge",
       description: "Train your memory with fun exercises",
       category: "Memory",
@@ -132,7 +141,7 @@ function Games() {
     }
   ]
 
-  const techBadges = ['Three.js', 'WebGL', 'HTML5 Canvas', 'jQuery', 'Vanilla JS', 'CSS3', 'React']
+  const techBadges = ['React Three Fiber', 'Three.js', 'WebGL', 'HTML5 Canvas', 'jQuery', 'Vanilla JS', 'CSS3', 'React']
 
   return (
     <Box>
@@ -257,6 +266,23 @@ function Games() {
             Web Game Technologies Showcase
           </Typography>
           <Grid container spacing={4}>
+            <Grid item xs={12} md={6} lg={3}>
+              <TechCard>
+                <CardContent sx={{ p: 4, textAlign: 'center' }}>
+                  <Typography 
+                    variant="h5" 
+                    component="h3" 
+                    gutterBottom
+                    sx={{ fontWeight: 'bold', mb: 2 }}
+                  >
+                    🚀 React Three Fiber
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Modern React-based 3D graphics with declarative Three.js components, physics, and interactive controls.
+                  </Typography>
+                </CardContent>
+              </TechCard>
+            </Grid>
             <Grid item xs={12} md={6} lg={3}>
               <TechCard>
                 <CardContent sx={{ p: 4, textAlign: 'center' }}>

@@ -12,6 +12,7 @@ import CubeAdventure from './components/games/CubeAdventure'
 import ParticleStorm from './components/games/ParticleStorm'
 import MemoryMatch from './components/games/MemoryMatch'
 import TowerDefense from './components/games/TowerDefense'
+import CosmicDefender from './components/games/CosmicDefender'
 import './App.css'
 
 // Create Material UI theme
@@ -53,6 +54,7 @@ function App() {
           <Route path="particle-storm" element={<ParticleStorm />} />
           <Route path="memory-match" element={<MemoryMatch />} />
           <Route path="tower-defense" element={<TowerDefense />} />
+          <Route path="cosmic-defender" element={<CosmicDefender />} />
         </Route>
       </Routes>
     </ThemeProvider>
