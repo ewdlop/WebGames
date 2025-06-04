@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import GameUI from '../GameUI'
-import '../GameLayout.css'
+import '../layouts/GameLayout.css'
 
 function ParticleStorm() {
   const canvasRef = useRef(null)
