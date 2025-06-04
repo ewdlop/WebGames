@@ -114,12 +114,22 @@ function ParticleStorm() {
     const ctx = canvas.getContext('2d')
     
     const resize = () => {
-      canvas.width = canvas.clientWidth
-      canvas.height = canvas.clientHeight
+      const container = canvas.parentElement
+      const width = container.clientWidth
+      const height = container.clientHeight
+      
+      // Force canvas to match container size (same as CubeAdventure)
+      canvas.width = width
+      canvas.height = height
+      canvas.style.width = width + 'px'
+      canvas.style.height = height + 'px'
     }
     
     resize()
     window.addEventListener('resize', resize)
+    
+    // Force resize after component is mounted (same timing as useThree)
+    setTimeout(resize, 10)
 
     const animate = () => {
       // Clear canvas with trail effect

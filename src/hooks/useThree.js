@@ -76,12 +76,19 @@ export function useThree(options = {}) {
     const handleResize = () => {
       if (!canvasRef.current || !camera || !renderer) return
       
-      const width = canvasRef.current.clientWidth
-      const height = canvasRef.current.clientHeight
+      const container = canvasRef.current.parentElement
+      const width = container.clientWidth
+      const height = container.clientHeight
+      
+      // Force canvas to match container size
+      canvasRef.current.width = width
+      canvasRef.current.height = height
+      canvasRef.current.style.width = width + 'px'
+      canvasRef.current.style.height = height + 'px'
       
       camera.aspect = width / height
       camera.updateProjectionMatrix()
-      renderer.setSize(width, height)
+      renderer.setSize(width, height, false)
       
       if (onResize) {
         onResize({ width, height, camera, renderer })
@@ -115,8 +122,14 @@ export function useThree(options = {}) {
       onInit({ scene, camera, renderer })
     }
 
-    // Start animation
+    // Start animation and force initial resize
     animate()
+    
+    // Force resize after component is mounted
+    setTimeout(() => {
+      handleResize()
+    }, 10)
+    
     setIsLoading(false)
 
     // Cleanup

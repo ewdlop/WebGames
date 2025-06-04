@@ -69,7 +69,7 @@ function Header() {
   return (
     <StyledAppBar position="sticky" elevation={0}>
       <Container maxWidth="lg">
-        <Toolbar sx={{ justifyContent: 'space-between', py: 1 }}>
+        <Toolbar sx={{ justifyContent: 'space-between', py: 0.5, minHeight: '48px' }}>
           <Logo 
             component={NavLink} 
             to="/" 
